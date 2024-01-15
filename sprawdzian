@@ -1,0 +1,85 @@
+<?php 
+//Domiszewska 15.01.24 klasa 4i
+
+
+function script($tab,$tab2){//jesli rowne
+    if(count($tab)==count($tab2)){
+    
+        return "Tablice sa równe";
+    
+    }//jesli tablica 1 jest wieksza
+    else if(count($tab)>count($tab2)){
+
+        for($i=0;$i<count($tab);$i+=1){
+
+            for($j=0;$j<count($tab)-1;$j+=1){
+                if ($tab[$j]<$tab[$j+1]){
+
+                    $pom=$tab[$j];
+                    $tab[$j]=$tab[$j+1];
+                    $tab[$j+1]=$pom;
+                }
+            }
+            
+        }
+        for($i=0;$i<count($tab2);$i+=1){
+
+            for($j=0;$j<count($tab2)-1;$j+=1){
+
+                if ($tab2[$j]<$tab2[$j+1]){
+
+                    $pom=$tab2[$j];
+                    $tab2[$j]=$tab2[$j+1];
+                    $tab2[$j+1]=$pom;
+                }
+            }
+            
+        }
+    }//w innym przypadku
+    else {
+        for($i=0;$i<count($tab);$i+=1){
+
+            for($j=0;$j<count($tab)-1;$j+=1){
+
+                if ($tab[$j]>$tab[$j+1]){
+
+                    $pom=$tab[$j];
+                    $tab[$j]=$tab[$j+1];
+                    $tab[$j+1]=$pom;
+                }
+            }
+            
+        }
+        for($i=0;$i<count($tab2);$i+=1){
+
+            for($j=0;$j<count($tab2)-1;$j+=1){
+
+                if ($tab2[$j]>$tab2[$j+1]){
+
+                    $pom=$tab2[$j];
+                    $tab2[$j]=$tab2[$j+1];
+                    $tab2[$j+1]=$pom;
+                }
+            }
+            
+        }
+    }
+    return [$tab,$tab2];
+    
+}//tablice 
+$tablica=script([9,5,3,7],[8,2,9]);
+if($tablica=="Tablice sa równe"){
+    echo "<h3>Tablice sa równe</h3>";
+}
+else {
+    echo "<h3>Posortowane tablice:<br></h3> ";
+foreach($tablica[0] as $zmienna){
+    echo $zmienna." ";
+}
+echo"<br>";
+foreach($tablica[01] as $zmienna){
+    echo $zmienna." ";
+}
+}
+
+?>
